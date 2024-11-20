@@ -1,13 +1,12 @@
 # Intan_Capstone_JCDSOL17
 
 # Data Rumah Sakit "RS SAYANG BUNDA"
-# Catatan Medis, Riwayat Dokter, dan Appointment
-
-pasien = []
-staf = []
-janjian = []
+# Catatan Medis
 
 # Create Data
+
+pasien = []
+
 def add_pasien():
     print("\n MENAMBAH PASIEN  \n")
     nama = input("Masukkan nama pasien: ")
@@ -58,9 +57,8 @@ def delete_pasien():
         print(f"Pasien {hapusData['Nama']} berhasil dihapus")
     else:
         print("Maaf, tidak ada data pasien untuk dihapus.")
-        return
     
-def main_menu():
+def main_menu():   
     while True:
         print("\n MENU UTAMA \n")
         print("1. Tambah Pasien")
@@ -69,7 +67,6 @@ def main_menu():
         print("4. Menghapus Data Pasien")
         print("5. Keluar")
         option = input("Selamat datang! Tekan nomor sesuai kebutuhan Anda: ")
-        
         if option == "1":
             add_pasien()
         elif option == "2":
@@ -82,5 +79,6 @@ def main_menu():
             print("Aplikasi akan ditutup.")
             break
 
-    if __name__== "__main__":
-        main_menu()
+if __name__== "__main__":
+    print("Memulai program")
+    main_menu()
