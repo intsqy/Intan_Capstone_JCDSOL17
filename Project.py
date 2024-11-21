@@ -1,12 +1,12 @@
 # Intan_Capstone_JCDSOL17
 
 # Data Rumah Sakit "RS SAYANG BUNDA"
-# Catatan Medis
+# Pendaftaran PASIEN dan Penjadwalan PASIEN
 
 # Create Data
 
-pasien = []
-appointments = []
+pasien = [] 
+appointments = [] 
 dokter = [
     {"Nama": "Dr. Andi Suryanto", "Spesialisasi": "Jantung dan Paru", "Jadwal": "Senin - Kamis", "Pukul": "09:00 - 16:00"},
     {"Nama": "Dr. Budi Santoso", "Spesialisasi": "Umum", "Jadwal": "Jumat - Sabtu", "Pukul": "08:00 - 14:00"},
@@ -21,6 +21,7 @@ dokter = [
     {"Nama": "Dr. Karina Wijaya", "Spesialisasi": "Jantung dan Paru", "Jadwal": "Jumat - Sabtu", "Pukul": "10:00 - 14:00"}
 ]
 
+# Jika Pasien belum pernah menjadi pasien di RS SAYANG BUNDA
 def add_pasien():
     print("\n MENAMBAH PASIEN  \n")
     nama = input("Masukkan nama pasien: ")
@@ -29,20 +30,19 @@ def add_pasien():
     pasien.append({"Nama": nama, "Umur" : umur, "Keluhan": keluhan})
     print("Data pasien berhasil diinput.")
 
-# "pasien" = treat as integer
-# "p" = treat as string
-
+# Jika ingin melihat data pasien 
+# Bisa dikembangkan menjadi tindakan & obat yang pernah diterima pasien
 def record_pasien():
     print("\n CATATAN MEDIS PASIEN \n")
-    if not pasien:
+    if not pasien: # "pasien" = treat as integer
          print("Maaf, pasien tidak ditemukan.")
          return
     index = 1
-    for p in pasien:
+    for p in pasien: # "p" = treat as string
         print(f"{index}. Nama: {p['Nama']}, Umur: {p['Umur']}, Keluhan: {p['Keluhan']}")
         index += 1
 
-
+# Jika ingin mengupdate data pasien yang sudah pernah mendaftar di RS
 def update_pasien():
     print("\n PERBAHARUI PASIEN \n")
     record_pasien()
@@ -62,6 +62,7 @@ def update_pasien():
     else:
         print("Maaf, nomor yang anda cari tidak ditemukan.")
 
+# Jika ingin menghapus data pasien
 def delete_pasien():
     print("\n HAPUS DATA PASIEN \n")
     record_pasien()
@@ -72,13 +73,15 @@ def delete_pasien():
     else:
         print("Maaf, tidak ada data pasien untuk dihapus.")
 
+# Data dokter yang praktek di RS SAYANG BUNDA
 def data_dokter():
     print("\n DATA DOKTER \n")
     index = 1
     for doc in dokter:
         print(f"{index}. Nama: {doc['Nama']}, Spesialisasi: {doc['Spesialisasi']}, Jadwal: {doc['Jadwal']}, Pukul: {doc['Pukul']}")
         index += 1
-          
+
+# Jika ingin membuat jadwal. Syarat: Pasien diharuskan sudah mendaftar sebagai member terlebih dahulu 
 def schedule_appointment():
     print("\n JADWALKAN JANJI \n")
     if not pasien:
@@ -108,6 +111,7 @@ def schedule_appointment():
     else:
         print("Pilihan pasien atau dokter tidak ditemukan.")
      
+# Jika ingin melihat janji yang sudah dibuat
 def lihat_appointments():
     print("\n DAFTAR JANJI \n")
     if not appointments:
@@ -115,9 +119,10 @@ def lihat_appointments():
         return
     index = 1
     for a in appointments:
-        print(f"{index}. Pasien: {a['Pasien'], Dokter: {a[Dokter]}, Waktu: {a['waktu']}}")
+        print(f"{index}. Pasien: {a['Pasien'], dokter: {a[Dokter]}, Waktu: {a['waktu']}}")
         index +=1
 
+# Jika ingin menghapus janji yang sudah dibuat
 def delete_appointments():
     print("\n HAPUS JANJI \n")
     lihat_appointments()
@@ -128,6 +133,7 @@ def delete_appointments():
     else:
         print("Nomor tidak valid.")
 
+# Daftar menu pada halaman pertama
 def main_menu():   
     while True:
         print("Selamat datang di RS SAYANG BUNDA!")
