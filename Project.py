@@ -94,11 +94,11 @@ def schedule_appointment():
         print(f"{index}. Nama: {p['Nama']}, Keluhan: {p['Keluhan']}")
         index += 1
     
-    index_pasien = int(input("Masukkan nomor pasien: "))
+    index_pasien = int(input("Masukkan nomor pasien: ")) -1
 
     print("\n Pilih dokter: ")
     data_dokter()
-    index_dokter = int(input("Masukkan nomor dokter yang ingin dipilih: -")) - 1
+    index_dokter = int(input("Masukkan nomor dokter yang ingin dipilih: ")) - 1
     waktu = input("Masukkan waktu janji (contoh: '09:00'): ")
 
     if 0 <= index_pasien < len(pasien) and 0 <= index_dokter < len(dokter):
@@ -119,8 +119,8 @@ def lihat_appointments():
         return
     index = 1
     for a in appointments:
-        print(f"{index}. Pasien: {a['Pasien'], dokter: {a[Dokter]}, Waktu: {a['waktu']}}")
-        index +=1
+        print(f"{index}. Pasien: {a['Pasien']}, Dokter: {a['Dokter']}, Waktu: {a['Waktu']}")
+        index += 1
 
 # Jika ingin menghapus janji yang sudah dibuat
 def delete_appointments():
